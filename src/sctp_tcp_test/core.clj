@@ -26,6 +26,7 @@
    :message-size    1800    messageSize,
    :nr-of-messages  1000000 nrOfMessages,
    :rec-traffic     false   recTraffic,
+   :host            "localhost" host,
    :port            9431    port,
    :server-delay-ms 0       serverDelayMs,
    :client-delay-ms 0       clientDelayMs
@@ -40,7 +41,9 @@
       :sctp {:client (SctpClient.) :server (SctpServer.)})
     :options (options-of options-map)))
 
-
+(defn start-server! [protocol & options]
+  ;;TODO
+  )
 
 (defn bench 
   "Benchmark transport protocols on localhost by starting a server and a client. 

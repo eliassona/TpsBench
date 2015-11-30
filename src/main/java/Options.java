@@ -7,6 +7,7 @@ public interface Options {
 	int nrOfMessages();
 	boolean recTraffic();
 	int port();
+	String host();
 	int serverDelayMs();
 	int clientDelayMs();
 	boolean noDelay();
