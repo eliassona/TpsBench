@@ -5,14 +5,63 @@ A program designed to benchmark TCP and SCTP transport protocol.
 
 ## Installation
 
-Do a git clone on this project.
-Install leinigen, see (http://leiningen.org)
-
+This is a leinigen project so it must be installed first. (leinigen.org)
 
 ## Usage
 
-Do a 'cd' to project's root dir.
-Type 'lein repl' at the console. This will start a clojure repl
+```clojure
+(use 'sctp-tcp-test.core)
+
+(bench :tcp)
+=>
+{:server-delay-ms 0,
+ :disable-fragments false,
+ :no-delay true,
+ :nr-of-messages 1000000,
+ :port 9431,
+ :duration-ms 2834,
+ :host "localhost",
+ :message-size 1800,
+ :tps 352858,
+ :rec-buffer 100000,
+ :rec-traffic false,
+ :client-delay-ms 0,
+ :send-buffer 100000}
+
+(bench :tcp :port 9876)
+=>
+{:server-delay-ms 0,
+ :disable-fragments false,
+ :no-delay true,
+ :nr-of-messages 1000000,
+ :port 9876,
+ :duration-ms 2872,
+ :host "localhost",
+ :message-size 1800,
+ :tps 348189,
+ :rec-buffer 100000,
+ :rec-traffic false,
+ :client-delay-ms 0,
+ :send-buffer 100000}
+ ```
+
+;to see supported options and their default values
+
+```clojure
+default-options
+=>
+{:server-delay-ms 0,
+ :disable-fragments false,
+ :no-delay true,
+ :nr-of-messages 1000000,
+ :port 9431,
+ :host "localhost",
+ :message-size 1800,
+ :rec-buffer 100000,
+ :rec-traffic false,
+ :client-delay-ms 0,
+ :send-buffer 100000}
+```
 
 
 
